@@ -145,8 +145,8 @@ if exists(":Tabularize")
 endif
 
 " Indent guide configuration
-autocmd FileType * IndentGuidesEnable
-let g:indent_guides_auto_colors = 1
+" autocmd FileType * IndentGuidesEnable (doesn't work for nical)
+" let g:indent_guides_auto_colors = 1 (doesn't work for nical)
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#222222
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333333
 let g:indent_guides_guide_size = 2
