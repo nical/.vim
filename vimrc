@@ -164,11 +164,31 @@ map <C-Tab> :A<CR><Esc>
 cmap w!! w !sudo tee % >/dev/null
 
 " Temporary
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
+"noremap <up> <nop>
+"noremap <down> <nop>
+"noremap <left> <nop>
+"noremap <right> <nop>
 noremap <C-J> :silent :tabprev<CR><Esc>
 noremap <C-K> :silent :tabnext<CR><Esc>
 
 map <Leader>t :silent :FufCoverageFile <CR><Esc>
+
+
+" word wrap
+set ww=h,l
+
+if has("gui_running")
+  " If the current buffer has never been saved, it will have no name,
+  " call the file browser to save it, otherwise just save it.
+  :map <silent> <C-S> :if expand("%") == ""<CR>:browse confirm w<CR>:else<CR>:confirm w<CR>:endif<CR>
+endif
+:imap <c-s> <c-o><c-s>
+:map <C-d> yyp
+:imap <C-d> <Esc>yypi
+
+:imap <C-z> <Esc>ui
+:imap <C-y> <Esc>Ui
+:imap <C-space> <c-n>
+
+"freakin past function not even her by default
+:nnoremap <S-Insert> "+P
